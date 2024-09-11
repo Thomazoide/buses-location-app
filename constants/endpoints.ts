@@ -1,0 +1,2 @@
+export const SEND_LOCATION_ENDPOINT: string = "https://tpntb5td21.execute-api.sa-east-1.amazonaws.com/V0_1/api/choferes/update-location"
+export const CHECK_BEACON_MAC_ENDPOINT: string = "https://tpntb5td21.execute-api.sa-east-1.amazonaws.com/V0_1/api/choferes/check-rut"
