@@ -11,9 +11,18 @@ import axios from 'axios';
 import { GEOLOCALIZACION } from '@/constants/taskNames';
 import { geolocation } from '@/types/geoTypes';
 import { SEND_LOCATION_ENDPOINT } from '@/constants/endpoints';
+import { setNotificationHandler, usePermissions } from 'expo-notifications'
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  })
+})
 
 defineTask<geolocation>(GEOLOCALIZACION, async ({data, error}) => {
   if(error){
@@ -40,6 +49,7 @@ defineTask<geolocation>(GEOLOCALIZACION, async ({data, error}) => {
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  const [permissionResponse, requestPermission] = usePermissions()
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
@@ -47,6 +57,7 @@ export default function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
+      requestPermission()
     }
   }, [loaded]);
 

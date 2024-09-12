@@ -39,7 +39,14 @@ export default function UserLocation() {
         accuracy: Location.Accuracy.Balanced,
         timeInterval: 5000,
         distanceInterval: 0,
-        deferredUpdatesInterval: 5000
+        deferredUpdatesInterval: 5000,
+        deferredUpdatesDistance: 0,
+	showsBackgroundLocationIndicator: true,
+        foregroundService: {
+            notificationTitle: "Compartiendo ubicación",
+            notificationBody: "Se está compartiendo la ubicación en tiempo real"
+        },
+	pausesUpdatesAutomatically: false
     }
 
     const startLocationAlt = () => {
