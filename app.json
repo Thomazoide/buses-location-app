@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "BusesApp",
-    "slug": "BusesApp",
+    "slug": "busesapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/busIcon.png",
@@ -61,13 +61,9 @@
       "typedRoutes": true
     },
     "extra": {
-      "router": {
-        "origin": false
-      },
       "eas": {
-        "projectId": "a858aece-fcc7-4376-aa13-69a0bc76a84b"
+        "projectId": "7273cf65-8bd8-4350-9457-acf5f3c20be9"
       }
-    },
-    "owner": "thomazo"
+    }
   }
 }
